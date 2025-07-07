@@ -4,12 +4,12 @@ Title: What the Package Does (Title Case)
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Sergio", "Valbuena",
+      email = "svalbuenaa@gmail.com",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
+Description: The package provides visualization tools for PC scores.
     Continuation lines should be indented.
 License: What license is it under?
 Encoding: UTF-8
