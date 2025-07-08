@@ -29,9 +29,11 @@ pca_result <- prcomp(iris[, 1:4], scale. = TRUE)
 
 ### Visualize PC scores of data.frame, matrix or PCA results objects with pcplotr::twoPCsScoresPlot()
 ```r
-pcplotr::twoPCsScoresPlot(arg_PC = pca_result,  # Object (data.frame, matrix or PCA result) with PC scores
-						  arg_scores = c(1,2),  # PCs to plot (provide them as an atomic vector)
-						  arg_color = NULL)		# Variable to color the data points (e.g. "treatment"). Use only if providing a data.frame or matrix
+pcplotr::twoPCsScoresPlot(
+	arg_PC = pca_result,    # Object (data.frame, matrix or PCA result) with PC scores
+	arg_scores = c(1,2),    # PCs to plot (provide them as an atomic vector)
+	arg_color = NULL		# Variable to color the data points (e.g. "treatment"). Use only if providing a data.frame or matrix
+)   	
 ```
 
 
