@@ -1,6 +1,21 @@
+## Data for tests
+# Simple matrix
+matrix_3 <- as.data.frame(matrix(seq(1,9), ncol = 3))
 
+# Data frame from prcomp pca
+temp_df <-  as.data.frame(matrix(c(1,2,3,42,2,1,2,3,1,3,1,2,22,23,1), ncol = 3))
+temp_pca <- prcomp(temp_df)
+temp_scores <- as.data.frame(temp_pca$x)
+temp_scores$treatment <- as.factor(c(rep("Ctrl", 3), rep("Tmt", 2)))
 
+# Data frame from princomp pca
+temp_pca_prin <- princomp(temp_df)
+temp_scores_prin <- as.data.frame(temp_pca_prin$scores)
+temp_scores_prin$treatment <- as.factor(c(rep("Ctrl", 3), rep("Tmt", 2)))
 
+# ---------------------------------------------------------------------------------------------------------------------
+
+## Aarguments sanity check
 # Test sanity of arg_PC
 test_that("arg_PC format/value errors", {
   expect_error(twoPCsScoresPlot(arg_PC = list(1,2), arg_scores = c(1,2), arg_color=NULL), info = "class list")           # Error if arg_PC is a list
