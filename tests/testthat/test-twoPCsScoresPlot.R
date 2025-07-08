@@ -4,7 +4,7 @@ test_that("arg_PC format/value errors", {
   expect_error(twoPCsScoresPlot(arg_PC = list(1,2), arg_scores = c(1,2), arg_color=NULL), info = "class list")           # Error if arg_PC is a list
   expect_error(twoPCsScoresPlot(arg_PC = c(1,2), arg_scores = c(1,2), arg_color=NULL), info = "class atomic vector")     # Error if arg_PC is an atomic vector
   expect_error(twoPCsScoresPlot(arg_PC =matrix_3, arg_scores = c(1,2), arg_color=NULL), info = "class atomic vector")    # Error if arg_PC is an atomic vector
-  #expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = c(1,2), arg_color=NULL), info = "Temp no error") # Temp no error
+  expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = c(1,2), arg_color=NULL), info = "Temp no error") # Temp no error
 })
 
 test_that("arg_scores format/value errors", {
