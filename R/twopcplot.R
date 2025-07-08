@@ -15,6 +15,8 @@
 #'    scores should be integers
 #' @param arg_PC Object containing PC scores for each point in the dataset
 #' @param arg_color Optional: If arg_PC is a matrix/data.frame contains
+#' @import ggplot2
+#' @import rlang
 #' @export
 twoPCsScoresPlot <- function(arg_PC,
                              arg_scores,
@@ -152,22 +154,6 @@ twoPCsScoresPlot <- function(arg_PC,
       geom_point()
   }
 }
-
-
-temp_plot <- twoPCsScoresPlot(temp_pca_prin, c(1,3))
-temp_plot
-
-matrix_3 <- as.data.frame(matrix(seq(1,9), ncol = 3))
-
-
-temp_df <-  as.data.frame(matrix(c(1,2,3,42,2,1,2,3,1,3,1,2,22,23,1), ncol = 3))
-temp_pca <- prcomp(temp_df)
-temp_scores <- as.data.frame(temp_pca$x)
-temp_scores$treatment <- as.factor(c(rep("Ctrl", 3), rep("Tmt", 2)))
-
-temp_pca_prin <- princomp(temp_df)
-temp_scores_prin <- as.data.frame(temp_pca_prin$scores)
-temp_scores_prin$treatment <- as.factor(c(rep("Ctrl", 3), rep("Tmt", 2)))
 
 
 
