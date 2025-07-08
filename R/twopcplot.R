@@ -17,6 +17,7 @@
 #' @param arg_color Optional: If arg_PC is a matrix/data.frame contains
 #' @import ggplot2
 #' @import rlang
+#' @importFrom methods is
 #' @export
 twoPCsScoresPlot <- function(arg_PC,
                              arg_scores,
@@ -28,7 +29,7 @@ twoPCsScoresPlot <- function(arg_PC,
   }
 
   # Assign scores of prcomp object as arg_PC_
-  else if (class(arg_PC) == "prcomp"){
+  else if (is(arg_PC, "prcomp")){
     arg_PC_ <- as.data.frame(arg_PC$x)
     if (!is.null(arg_color)){
       message("Ignoring arg_color with PCA object as input")
@@ -36,7 +37,7 @@ twoPCsScoresPlot <- function(arg_PC,
   }
 
   # Assign scores of princomp object as arg_PC_
-  else if (class(arg_PC) == "princomp"){
+  else if (is(arg_PC, "princomp")){
     arg_PC_ <- as.data.frame(arg_PC$scores)
     colnames(arg_PC_) <- paste0("PC", 1:ncol(arg_PC_)) # Rename columns to have
                                                        # a consistent format
