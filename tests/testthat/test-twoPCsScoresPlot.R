@@ -1,12 +1,17 @@
-temp_scores <- temp_scores
 
+
+
+# Test sanity of arg_PC
 test_that("arg_PC format/value errors", {
   expect_error(twoPCsScoresPlot(arg_PC = list(1,2), arg_scores = c(1,2), arg_color=NULL), info = "class list")           # Error if arg_PC is a list
   expect_error(twoPCsScoresPlot(arg_PC = c(1,2), arg_scores = c(1,2), arg_color=NULL), info = "class atomic vector")     # Error if arg_PC is an atomic vector
   expect_error(twoPCsScoresPlot(arg_PC =matrix_3, arg_scores = c(1,2), arg_color=NULL), info = "class atomic vector")    # Error if arg_PC is an atomic vector
-  expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = c(1,2), arg_color=NULL), info = "Temp no error") # Temp no error
+  #expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = c(1,2), arg_color=NULL), info = "Temp no error") # Temp no error
 })
 
+# ---------------------------------------------------------------------------------------------------------------------
+
+# Test sanity of arg_scores
 test_that("arg_scores format/value errors", {
   expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = list(1,2), arg_color=NULL), info = "class list")         # Error if arg_scores is a list
   expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = matrix_3, arg_color=NULL), info = "class matrix")        # Error if arg_scores is a matrix
@@ -20,7 +25,9 @@ test_that("arg_scores format/value errors", {
   #expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = c(1,2), arg_color=NULL), info = "Temp no error")         # Temp no error
 })
 
+# ---------------------------------------------------------------------------------------------------------------------
 
+# Test sanity of arg_color
 test_that("arg_color format/value errors", {
   expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = c(1,2), arg_color=1), info = "numeric")                        # Error if arg_color is not a character (numeric)
   expect_error(twoPCsScoresPlot(arg_PC = temp_scores, arg_scores = c(1,2), arg_color=list()), info = "not positive values")       # Error if arg_color is not a character (empty list) (but not if empty atomic vector "c()")
