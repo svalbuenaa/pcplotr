@@ -3,3 +3,4 @@
 export(twoPCsScoresPlot)
 import(ggplot2)
 import(rlang)
+importFrom(methods,is)
